@@ -6,6 +6,9 @@ Sure! Below is the `README.md` file for the Chrome extension, which explains how
 
 This Chrome extension allows you to accept a list of IDs from the user and then send buffered DELETE API requests (using jQuery) to a URL for each ID within the context of the active tab. The requests are buffered to prevent overwhelming the server.
 
+## WARNING
+BY USING THIS YOU UNDERSTAND YOU CAN VERY EASILY DELETE ALOT OF STUFF VERY QUICKLY! PLEASE BE CAREFUL WHEN USING THIS... i beg you
+
 ## Table of Contents
 
 - [Features](#features)
@@ -19,12 +22,6 @@ This Chrome extension allows you to accept a list of IDs from the user and then 
   - [Step 3: Enter the List of IDs](#step-3-enter-the-list-of-ids)
   - [Step 4: Start the Deletion Process](#step-4-start-the-deletion-process)
   - [Step 5: Monitor Progress](#step-5-monitor-progress)
-- [Configuration](#configuration)
-  - [Adjusting the Delay Between Requests](#adjusting-the-delay-between-requests)
-  - [Customizing the API Endpoint](#customizing-the-api-endpoint)
-  - [Restricting Host Permissions](#restricting-host-permissions)
-- [Security Considerations](#security-considerations)
-- [Troubleshooting](#troubleshooting)
 - [Support](#support)
 
 ---
@@ -34,7 +31,6 @@ This Chrome extension allows you to accept a list of IDs from the user and then 
 - **User Input**: Accepts a list of IDs through a simple popup interface.
 - **Active Tab Context**: Runs JavaScript in the active tab's context, ensuring that requests include any necessary authentication tokens or cookies.
 - **Buffered Requests**: Sends DELETE requests with a delay between each to prevent server overload.
-- **jQuery Integration**: Utilizes jQuery for simplified AJAX requests.
 
 ## Prerequisites
 
@@ -111,82 +107,11 @@ This Chrome extension allows you to accept a list of IDs from the user and then 
 
 ### Step 5: Monitor Progress
 
-- Since the requests are made in the context of the active tab, you can monitor the progress through the browser's console.
-- To open the console:
-
-  1. Right-click anywhere on the web page.
-  2. Select **Inspect** from the context menu.
-  3. In the developer tools that open, click on the **Console** tab.
-  4. You should see logs indicating the success or failure of each DELETE request.
-
-## Configuration
-
-### Adjusting the Delay Between Requests
-
-- The default delay between each DELETE request is **1 second**.
-- To change the delay:
-
-  1. Open `contentScript.js` in a text editor.
-  2. Find the line: `const delay = 1000;`
-  3. Change `1000` to your desired delay in milliseconds (e.g., `2000` for 2 seconds).
-
-### Customizing the API Endpoint
-
-- The extension constructs the API URL using the active tab's origin and a default endpoint.
-- To adjust the endpoint:
-
-  1. Open `contentScript.js`.
-  2. Locate the line:
-
-     ```javascript
-     let apiUrl = `${window.location.origin}/api/delete/${id}`; // Adjust the endpoint as needed
-     ```
-
-  3. Modify the path to match your API's endpoint. For example:
-
-     ```javascript
-     let apiUrl = `${window.location.origin}/your/custom/endpoint/${id}`;
-     ```
-
-### Restricting Host Permissions
-
-- For security purposes, it's recommended to limit the extension's permissions to specific domains.
-- To restrict host permissions:
-
-  1. Open `manifest.json`.
-  2. Replace `"<all_urls>"` in the `"host_permissions"` section with the specific URLs you need. For example:
-
-     ```json
-     "host_permissions": ["https://www.example.com/*"]
-     ```
-
-## Security Considerations
-
-- **Host Permissions**: Limiting permissions helps prevent the extension from accessing unintended sites.
-- **Authentication**: DELETE requests are made from the active tab's context, using any existing authentication tokens or cookies.
-- **Data Safety**: Ensure that you have the necessary permissions to delete the IDs on the target server to avoid data loss or policy violations.
-
-## Troubleshooting
-
-- **Error Injecting Scripts**:
-
-  - **Issue**: You receive an error message stating that scripts couldn't be injected.
-  - **Solution**: Ensure that the target web page allows script execution and that all extension files are correctly included.
-
-- **DELETE Requests Failing**:
-
-  - **Issue**: The console logs indicate that DELETE requests are failing.
-  - **Solution**:
-
-    - Check if the API endpoint URL is correct.
-    - Ensure that you have the necessary permissions and that authentication tokens are valid.
-    - Verify that the server allows DELETE requests from your context.
-
-- **CORS Errors**:
-
-  - **Issue**: You encounter Cross-Origin Resource Sharing (CORS) errors.
-  - **Solution**: Since requests are made from the page context, CORS issues should be minimized. If they occur, you may need to adjust server-side CORS policies.
+- The pop up will tell you how many remaining posts it has left to process
+- You are free to click off of the pop up and use OTHER TABS normally
+- DO NOT DO ANYTHING ON THE AXONIFY TAB YOU ARE RUNNING THIS PROCESS ON!
+- A chrome notification will happily inform you when the process is done running, to which you can begin to use all tabs as you wish
 
 ## Support
 
-If you have any questions or need further assistance, please feel free to reach out through the extension's support page or submit an issue on the repository if available.
+WHEN you have any questions or need further assistance, please feel free to reach out to Brian Best on Slack or open an issue.
