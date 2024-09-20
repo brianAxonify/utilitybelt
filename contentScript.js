@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 // Deletion function
 function startDeleting(ids) {
   let index = 0;
-  const delay = 1000; // 1 second delay between requests
+  const delay = 600; // delay between requests
 
   function sendNextRequest() {
     if (index < ids.length) {
