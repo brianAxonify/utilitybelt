@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Bulk Delete IDs",
+  "version": "1.0",
+  "description": "Accepts a list of IDs and sends buffered DELETE requests in the active tab context.",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": ["<all_urls>"],
+  "web_accessible_resources": [
+    {
+      "resources": ["jquery.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
