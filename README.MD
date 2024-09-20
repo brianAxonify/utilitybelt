@@ -1,8 +1,4 @@
-Sure! Below is the `README.md` file for the Chrome extension, which explains how to install it as an unpacked extension and how to use it.
-
----
-
-# Bulk Delete IDs Chrome Extension
+# Bulk Delete Discover Pages And Posts, Chrome Extension
 
 This Chrome extension allows you to accept a list of IDs from the user and then send buffered DELETE API requests (using jQuery) to a URL for each ID within the context of the active tab. The requests are buffered to prevent overwhelming the server.
 
