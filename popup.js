@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const statusElement = document.getElementById('status');
+
   document.getElementById('startButton').addEventListener('click', async () => {
     // Get IDs from the textarea
     let ids = document.getElementById('idList').value;
@@ -30,13 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
       // Send IDs to the content script
       chrome.tabs.sendMessage(tab.id, { action: 'startDeleting', ids: ids }, response => {
         if (chrome.runtime.lastError) {
-          document.getElementById('status').textContent = 'Error: ' + chrome.runtime.lastError.message;
+          statusElement.textContent = 'Error: ' + chrome.runtime.lastError.message;
         } else {
-          document.getElementById('status').textContent = 'Deletion started.';
+          statusElement.textContent = `Deletion started. Remaining IDs: ${ids.length}`;
         }
       });
     } catch (error) {
-      document.getElementById('status').textContent = 'Error injecting scripts: ' + error;
+      statusElement.textContent = 'Error injecting scripts: ' + error;
+    }
+  });
+
+  // Listen for progress updates from the background script
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === 'updateProgress') {
+      statusElement.textContent = `Remaining IDs: ${message.remaining}`;
+    } else if (message.action === 'deletionCompleted') {
+      statusElement.textContent = 'All IDs have been processed.';
     }
   });
 });
