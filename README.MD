@@ -1,6 +1,6 @@
 # Bulk Delete Discover Pages And Posts, Chrome Extension
 
-This Chrome extension allows you to accept a list of IDs from the user and then send buffered DELETE API requests (using jQuery) to a URL for each ID within the context of the active tab. The requests are buffered to prevent overwhelming the server.
+This Chrome extension allows you to accept a list of IDs from the user and then send buffered DELETE API requests to a URL for each ID within the context of the active tab. The requests are buffered to prevent overwhelming the server.
 
 ## WARNING
 BY USING THIS YOU UNDERSTAND YOU CAN VERY EASILY DELETE ALOT OF STUFF VERY QUICKLY! PLEASE BE CAREFUL WHEN USING THIS... i beg you
@@ -37,7 +37,7 @@ BY USING THIS YOU UNDERSTAND YOU CAN VERY EASILY DELETE ALOT OF STUFF VERY QUICK
 
 ### Step 1: Prepare the Extension Files
 
-1. Download the files here
+1. Download the [files here](https://github.com/brianAxonify/utilitybelt/releases/tag/v1.0.0)
 
 
 ### Step 2: Load the Extension into Chrome
