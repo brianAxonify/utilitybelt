@@ -17,7 +17,7 @@ function startDeleting(ids) {
   function sendNextRequest() {
     if (index < ids.length) {
       let id = ids[index];
-      let apiUrl = `${window.location.origin}/api/delete/${id}`; // Adjust the endpoint as needed
+      let apiUrl = `${window.location.origin}/axonify/admin/articles/${id}`; // Adjust the endpoint as needed
 
       // Send DELETE request using jQuery with custom header
       $.ajax({
