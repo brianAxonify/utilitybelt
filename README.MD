@@ -37,7 +37,7 @@ BY USING THIS YOU UNDERSTAND YOU CAN VERY EASILY DELETE ALOT OF STUFF VERY QUICK
 
 ### Step 1: Prepare the Extension Files
 
-1. Download the [files here](https://github.com/brianAxonify/utilitybelt/releases/tag/v1.0.0)
+1. Download the [files here](https://github.com/brianAxonify/utilitybelt/releases/tag/v1.0.1)
 
 
 ### Step 2: Load the Extension into Chrome
